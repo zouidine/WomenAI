@@ -1,0 +1,1822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morocco's AI Forum 2026</title>
+<style>
+  :root {
+    --primary: #C8102E;
+    --primary-dark: #9E0B24;
+    --accent: #E8293A;
+    --surface: #FDF0F2;
+    --surface-2: #FAE4E7;
+    --bg: #FAFAFA;
+    --white: #FFFFFF;
+    --text: #1A1A1A;
+    --muted: #6B6B6B;
+    --border: #EDD0D4;
+    --shadow: rgba(200,16,46,0.10);
+    --nav-h: 68px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+
+  /* ── TYPOGRAPHY ── */
+  .sans { font-family: 'Trebuchet MS', 'Segoe UI', sans-serif; }
+
+  h1, h2, h3, h4 { font-family: 'Trebuchet MS', 'Segoe UI', sans-serif; font-weight: 700; }
+
+  h2.section-title {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 0.4rem;
+    position: relative;
+  }
+  h2.section-title::after {
+    content: '';
+    display: block;
+    width: 56px;
+    height: 4px;
+    background: var(--primary);
+    border-radius: 2px;
+    margin: 0.6rem auto 0;
+  }
+
+  .section-sub {
+    text-align: center;
+    color: var(--muted);
+    max-width: 680px;
+    margin: 0 auto 2.8rem;
+    font-size: 1.05rem;
+  }
+
+  section { padding: 5rem 1.5rem; }
+
+  .container { max-width: 1140px; margin: 0 auto; }
+
+  /* ── NAV ── */
+  #navbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(8px);
+    border-bottom: 2px solid var(--border);
+    height: var(--nav-h);
+    display: flex;
+    align-items: center;
+    transition: box-shadow .3s;
+  }
+  #navbar.scrolled { box-shadow: 0 4px 24px var(--shadow); }
+
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+  }
+  .nav-logo-mark {
+    width: 36px; height: 36px;
+    background: var(--primary);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .nav-logo-mark svg { width: 22px; height: 22px; fill: white; }
+  .nav-logo-text {
+    font-family: 'Trebuchet MS', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    line-height: 1.2;
+    color: var(--text);
+  }
+  .nav-logo-text span { color: var(--primary); }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 0.2rem;
+    flex-wrap: wrap;
+  }
+  nav ul li a {
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 0.83rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    color: var(--muted);
+    padding: 0.4rem 0.6rem;
+    border-radius: 5px;
+    transition: color .2s, background .2s;
+  }
+  nav ul li a:hover,
+  nav ul li a.active {
+    color: var(--primary);
+    background: var(--surface);
+  }
+
+  .nav-cta {
+    background: var(--primary);
+    color: white !important;
+    padding: 0.42rem 1rem !important;
+    border-radius: 6px;
+  }
+  .nav-cta:hover { background: var(--primary-dark) !important; color: white !important; }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: .3s; }
+
+  @media (max-width: 820px) {
+    .hamburger { display: flex; }
+    nav { display: none; position: absolute; top: var(--nav-h); left: 0; right: 0; background: white; border-bottom: 2px solid var(--border); padding: 1rem 1.5rem; }
+    nav.open { display: block; }
+    nav ul { flex-direction: column; gap: 0.1rem; }
+    nav ul li a { display: block; padding: 0.6rem 0.8rem; }
+  }
+
+  /* ── HERO ── */
+  #home {
+    min-height: 100vh;
+    padding-top: var(--nav-h);
+    background: linear-gradient(135deg, #1A0005 0%, #3D0010 35%, #6B0018 65%, #9E0B24 100%);
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .hero-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.3;
+    background-image: url('imgs/bg.png'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+  }
+
+  .hero-geo {
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+    color: white;
+  }
+
+  .hero-edition {
+    display: inline-block;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 100px;
+    padding: 0.35rem 1rem;
+    margin-bottom: 1.4rem;
+    color: rgba(255,255,255,0.9);
+  }
+
+  .hero-title {
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    line-height: 1.12;
+    font-weight: 800;
+    margin-bottom: 0.9rem;
+    max-width: 820px;
+  }
+  .hero-title .highlight { color: #FFB3BE; }
+
+  .hero-theme {
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    color: rgba(255,255,255,0.8);
+    font-style: italic;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    font-family: 'Georgia', serif;
+  }
+
+  .hero-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin-bottom: 2.5rem;
+  }
+  .chip {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 8px;
+    padding: 0.45rem 0.9rem;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 0.88rem;
+    color: white;
+    backdrop-filter: blur(4px);
+  }
+  .chip svg { width: 15px; height: 15px; opacity: 0.85; }
+
+  .hero-btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-weight: 700;
+    font-size: 0.92rem;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    border: none;
+    border-radius: 8px;
+    padding: 0.78rem 1.6rem;
+    cursor: pointer;
+    transition: all .22s;
+  }
+  .btn-primary {
+    background: white;
+    color: var(--primary);
+  }
+  .btn-primary:hover { background: var(--surface); transform: translateY(-1px); box-shadow: 0 8px 20px rgba(0,0,0,0.25); }
+
+  .btn-outline {
+    background: transparent;
+    color: white;
+    border: 2px solid rgba(255,255,255,0.55);
+  }
+  .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: white; }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    color: rgba(255,255,255,0.5);
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    animation: bounce 2s infinite;
+  }
+  .hero-scroll svg { width: 20px; height: 20px; }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(6px); }
+  }
+
+  /* ── ABOUT ── */
+  #about { background: white; }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .about-text p { margin-bottom: 1rem; color: var(--muted); }
+  .about-text p:first-child { color: var(--text); font-size: 1.08rem; }
+
+  .about-stat-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+  }
+
+  .stat-item {
+    padding: 1.2rem;
+    background: white;
+    border-radius: 10px;
+    border-left: 4px solid var(--primary);
+    box-shadow: 0 2px 10px var(--shadow);
+  }
+  .stat-item .num {
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--primary);
+    line-height: 1;
+  }
+  .stat-item .label {
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-top: 0.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  @media (max-width: 900px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .about-stat-box { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* ── OBJECTIVES ── */
+  #objectives { background: var(--surface); }
+
+  .obj-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.4rem;
+  }
+
+  .obj-card {
+    background: white;
+    border-radius: 14px;
+    padding: 1.6rem;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 14px var(--shadow);
+    display: flex;
+    gap: 1rem;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .obj-card:hover { transform: translateY(-3px); box-shadow: 0 8px 28px var(--shadow); }
+
+  .obj-icon {
+    flex-shrink: 0;
+    width: 46px; height: 46px;
+    background: var(--primary);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .obj-icon svg { width: 22px; height: 22px; fill: white; }
+
+  .obj-body h4 {
+    font-size: 0.98rem;
+    margin-bottom: 0.35rem;
+    color: var(--text);
+  }
+  .obj-body p {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.55;
+    text-align: justify;
+  }
+
+  /* ── OUTCOMES ── */
+  #outcomes { background: white; }
+
+  .outcomes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.6rem;
+  }
+
+  .outcome-card {
+    background: var(--surface);
+    border-radius: 16px;
+    padding: 2rem 1.6rem;
+    border: 1px solid var(--border);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .outcome-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+  }
+  .outcome-num {
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--border);
+    line-height: 1;
+    margin-bottom: 0.6rem;
+  }
+  .outcome-card h3 {
+    font-size: 1rem;
+    color: var(--primary);
+    margin-bottom: 0.6rem;
+  }
+  .outcome-card p {
+    font-size: 0.87rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 800px) {
+    .outcomes-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── PILLARS ── */
+  #pillars { background: var(--surface); }
+
+  .pillars-stack { display: flex; flex-direction: column; gap: 1.4rem; }
+
+  .pillar-card {
+    background: white;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 14px var(--shadow);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0;
+    overflow: hidden;
+    transition: box-shadow .2s;
+  }
+  .pillar-card:hover { box-shadow: 0 8px 28px var(--shadow); }
+
+  .pillar-num-col {
+    background: linear-gradient(180deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 1.2rem;
+    min-width: 70px;
+    gap: 0.5rem;
+  }
+  .pillar-num-col .p-num {
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    line-height: 1;
+  }
+  .pillar-num-col svg { width: 22px; height: 22px; fill: rgba(255,255,255,0.7); }
+
+  .pillar-body { padding: 1.6rem 1.8rem; }
+
+  .pillar-focus {
+    display: inline-block;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--primary);
+    background: var(--surface-2);
+    border-radius: 4px;
+    padding: 0.2rem 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .pillar-body h3 { font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--text); }
+  .pillar-body .purpose { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.8rem; }
+
+  .pillar-questions {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+  .pillar-questions li {
+    font-size: 0.84rem;
+    color: var(--muted);
+    padding-left: 1.1rem;
+    position: relative;
+  }
+  .pillar-questions li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 720px) {
+    .pillar-card { grid-template-columns: 1fr; }
+    .pillar-num-col { flex-direction: row; justify-content: flex-start; padding: 1rem 1.4rem; min-width: unset; }
+  }
+
+  /* ── PROGRAM ── */
+  #program { background: white; }
+
+  .timeline { position: relative; max-width: 780px; margin: 0 auto; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 88px;
+    top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, var(--primary) 0%, var(--border) 100%);
+  }
+
+  .tl-item {
+    display: grid;
+    grid-template-columns: 88px 1fr;
+    gap: 0;
+    margin-bottom: 1.4rem;
+    position: relative;
+  }
+
+  .tl-time {
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--muted);
+    text-align: right;
+    padding-right: 1.2rem;
+    padding-top: 1.1rem;
+    line-height: 1.3;
+  }
+
+  .tl-dot {
+    position: absolute;
+    left: 80px;
+    top: 1.2rem;
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: var(--primary);
+    border: 3px solid white;
+    box-shadow: 0 0 0 2px var(--primary);
+    z-index: 1;
+  }
+
+  .tl-card {
+    margin-left: 1.6rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    transition: box-shadow .2s;
+  }
+  .tl-card:hover { box-shadow: 0 4px 16px var(--shadow); }
+  .tl-card.panel { border-left: 4px solid var(--primary); }
+  .tl-card.break { border-left: 4px solid var(--border); }
+
+  .tl-card h4 {
+    font-size: 0.97rem;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+  }
+  .tl-card p {
+    font-size: 0.84rem;
+    color: var(--muted);
+  }
+
+  .tl-tag {
+    display: inline-block;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: white;
+    background: var(--primary);
+    border-radius: 4px;
+    padding: 0.15rem 0.45rem;
+    margin-bottom: 0.3rem;
+  }
+
+  @media (max-width: 720px) {
+    .timeline::before { left: 0; }
+    .tl-item { grid-template-columns: 1fr; padding-left: 1.4rem; }
+    .tl-time { text-align: left; padding-right: 0; padding-top: 0; margin-bottom: 0.2rem; }
+    .tl-dot { left: -9px; top: 0.9rem; }
+    .tl-card { margin-left: 0; }
+  }
+
+  /* ── SPEAKERS ── */
+  #speakers { background: var(--surface); }
+
+  .speakers-intro {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .speakers-intro p { color: var(--muted); max-width: 550px; margin: 0 auto 1.5rem; }
+
+  .speakers-panels { display: flex; flex-direction: column; gap: 2rem; }
+
+  .spk-panel-label {
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+
+  .spk-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+  }
+
+  .spk-card {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    padding: 1.2rem 1rem;
+    text-align: center;
+    transition: box-shadow .2s, transform .2s;
+  }
+  .spk-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px var(--shadow); }
+
+  .spk-avatar {
+    width: 150px; height: 150px;
+    border-radius: 50%;
+    background: var(--surface-2);
+    margin: 0 auto 0.7rem;
+    display: flex; align-items: center; justify-content: center;
+    border: 3px solid red;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--primary);
+    overflow: hidden;
+  }
+  .spk-avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+  .spk-name {
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.2rem;
+  }
+  .spk-role {
+    font-size: 0.76rem;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  .tba-badge {
+    display: inline-block;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--muted);
+    background: var(--surface);
+    border: 1px dashed var(--border);
+    border-radius: 4px;
+    padding: 0.15rem 0.4rem;
+    margin-top: 0.3rem;
+  }
+
+  /* ── PARTNERS ── */
+  #partners { background: white; }
+
+  .partners-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.4rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .partner-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.05rem;
+    min-width: 500px;
+    max-width: 500px;
+    min-height: 300px;
+    text-align: center;
+    transition: box-shadow .2s;
+  }
+  .partner-card:hover { box-shadow: 0 4px 16px var(--shadow); }
+
+  .partner-logo-placeholder {
+    width: 200px; height: 125px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 0px;
+    overflow: hidden;
+  }
+  .partner-logo-placeholder img {
+    max-width: 100%; max-height: 100%;
+    object-fit: contain;
+  }
+  .partner-logo-placeholder .logo-fallback {
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: var(--primary);
+    letter-spacing: 0.05em;
+  }
+  .partner-name {
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--muted);
+  }
+
+  /* ── VENUE ── */
+  #venue { background: var(--surface); }
+
+  .venue-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+
+  .venue-info h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.3rem;
+    color: var(--text);
+  }
+  .venue-info .venue-sub {
+    color: var(--primary);
+    font-family: 'Trebuchet MS', sans-serif;
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+  }
+  .venue-info p { color: var(--muted); margin-bottom: 1rem; }
+
+  .venue-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    margin-bottom: 0.8rem;
+  }
+  .venue-detail svg { width: 18px; height: 18px; fill: var(--primary); flex-shrink: 0; margin-top: 2px; }
+  .venue-detail span { font-size: 0.9rem; color: var(--muted); }
+
+  .venue-map-placeholder {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    color: var(--muted);
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 0.88rem;
+    text-align: center;
+  }
+  .venue-map-placeholder svg { width: 40px; height: 40px; fill: var(--border); }
+
+  @media (max-width: 720px) { .venue-grid { grid-template-columns: 1fr; } }
+
+  /* ── FAQ ── */
+  #faq { background: white; }
+
+  .faq-list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 0.7rem; }
+
+  .faq-item {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .faq-q {
+    width: 100%;
+    text-align: left;
+    padding: 1.1rem 1.3rem;
+    background: var(--surface);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text);
+    transition: background .2s;
+  }
+  .faq-q:hover { background: var(--surface-2); }
+  .faq-q[aria-expanded="true"] { background: var(--surface-2); color: var(--primary); }
+
+  .faq-chevron {
+    flex-shrink: 0;
+    width: 18px; height: 18px;
+    fill: var(--muted);
+    transition: transform .25s;
+  }
+  .faq-q[aria-expanded="true"] .faq-chevron { transform: rotate(180deg); fill: var(--primary); }
+
+  .faq-a {
+    padding: 0 1.3rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s ease, padding .3s;
+  }
+  .faq-a.open { padding: 0.9rem 1.3rem 1.1rem; max-height: 400px; }
+  .faq-a p { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
+
+  /* ── CONTACT ── */
+  #contact { background: linear-gradient(135deg, #C8102E 0%, #8B0019 100%); color: white; }
+
+  .contact-inner { text-align: center; max-width: 640px; margin: 0 auto; }
+  .contact-inner h2 { color: white; }
+  .contact-inner h2::after { background: rgba(255,255,255,0.4); }
+  .contact-inner p { color: rgba(255,255,255,0.8); margin-bottom: 1.8rem; }
+
+  .contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 8px;
+    padding: 0.65rem 1.3rem;
+    color: white;
+    text-decoration: none;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 600;
+    transition: background .2s;
+  }
+  .contact-link:hover { background: rgba(255,255,255,0.25); }
+  .contact-link svg { width: 16px; height: 16px; fill: white; }
+
+  .contact-btn-row {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #0F0005;
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 2rem 1.5rem;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 0.82rem;
+  }
+  footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+  footer a:hover { color: white; }
+
+  /* ── BACK TO TOP ── */
+  #back-top {
+    position: fixed;
+    bottom: 1.8rem;
+    right: 1.8rem;
+    z-index: 900;
+    width: 44px; height: 44px;
+    background: var(--primary);
+    border: none;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 16px var(--shadow);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s, transform .3s;
+  }
+  #back-top.visible { opacity: 1; pointer-events: all; }
+  #back-top:hover { transform: translateY(-2px); }
+  #back-top svg { width: 18px; height: 18px; fill: white; }
+
+  /* ── MODAL ── */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(0,0,0,0.65);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s;
+    backdrop-filter: blur(3px);
+  }
+  .modal-overlay.open { opacity: 1; pointer-events: all; }
+
+  .modal {
+    background: white;
+    border-radius: 20px;
+    padding: 2.2rem;
+    max-width: 520px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    transform: scale(0.95) translateY(10px);
+    transition: transform .25s;
+  }
+  .modal-overlay.open .modal { transform: scale(1) translateY(0); }
+
+  .modal-close {
+    position: absolute;
+    top: 1rem; right: 1rem;
+    background: var(--surface);
+    border: none;
+    border-radius: 50%;
+    width: 34px; height: 34px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    transition: background .2s;
+  }
+  .modal-close:hover { background: var(--surface-2); }
+  .modal-close svg { width: 16px; height: 16px; fill: var(--muted); }
+
+  .modal h2 { font-size: 1.3rem; margin-bottom: 0.2rem; color: var(--primary); }
+  .modal .modal-sub { font-size: 0.87rem; color: var(--muted); margin-bottom: 1.5rem; }
+
+  .form-group { margin-bottom: 1rem; }
+  .form-group label {
+    display: block;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 0.83rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.35rem;
+  }
+  .form-group label .req { color: var(--primary); }
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 0.65rem 0.9rem;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 0.9rem;
+    color: var(--text);
+    background: white;
+    transition: border-color .2s, box-shadow .2s;
+    outline: none;
+  }
+  .form-group input:focus,
+  .form-group select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(200,16,46,0.12);
+  }
+  .form-group input.error,
+  .form-group select.error { border-color: #E53935; }
+
+  .field-err {
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 0.76rem;
+    color: #E53935;
+    margin-top: 0.25rem;
+    display: none;
+  }
+  .field-err.show { display: block; }
+
+  .checkbox-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    margin-bottom: 1.4rem;
+  }
+  .checkbox-row input[type="checkbox"] {
+    width: auto;
+    margin-top: 3px;
+    accent-color: var(--primary);
+    cursor: pointer;
+  }
+  .checkbox-row label {
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 0.83rem;
+    color: var(--muted);
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .modal-success {
+    text-align: center;
+    padding: 1.5rem 0;
+    display: none;
+  }
+  .modal-success.show { display: block; }
+  .modal-success .success-icon {
+    width: 64px; height: 64px;
+    background: #E8F5E9;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1rem;
+  }
+  .modal-success .success-icon svg { width: 32px; height: 32px; fill: #2E7D32; }
+  .modal-success h3 { color: #2E7D32; margin-bottom: 0.5rem; }
+  .modal-success p { color: var(--muted); font-size: 0.9rem; }
+
+  /* ── UTILS ── */
+  .btn svg { width: 16px; height: 16px; }
+  .btn-red { background: var(--primary); color: white; }
+  .btn-red:hover { background: var(--primary-dark); transform: translateY(-1px); box-shadow: 0 6px 18px var(--shadow); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header id="navbar" role="banner">
+  <div class="nav-inner">
+    <a href="#home" class="nav-logo" aria-label="Morocco's AI Forum home">
+      <div class="nav-logo-text">Morocco<span>AI</span><br>Forum 2026</div>
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="main-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#objectives">Objectives</a></li>
+        <li><a href="#pillars">Panels</a></li>
+        <li><a href="#program">Program</a></li>
+        <li><a href="#speakers">Speakers</a></li>
+        <li><a href="#partners">Partners</a></li>
+        <li><a href="#venue">Venue</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact" class="nav-cta">Register</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="home" aria-labelledby="hero-title">
+  <div class="hero-pattern"></div>
+  <div class="hero-geo"></div>
+  <div class="hero-inner">
+    <div class="hero-edition">2nd Edition · Morocco's AI Forum</div>
+    <h1 class="hero-title" id="hero-title">
+      Women's Leadership in AI:<br>
+      <span class="highlight">From Inclusion to Impact</span>
+    </h1>
+    <p class="hero-theme">"Empowering women to lead AI innovation, influence governance, 
+      and shape socially responsible AI for Morocco and the Global South."</p>
+    <div class="hero-chips">
+      <div class="chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Tuesday, 14 April 2026
+      </div>
+      <div class="chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Story Le Carrousel, Rabat - Morocco
+      </div>
+      <div class="chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        MoroccoAI &amp; GIZ
+      </div>
+    </div>
+    <div class="hero-btns">
+      <button class="btn btn-primary" id="hero-register-btn" aria-haspopup="dialog">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v2h20v-2c0-3.3-6.7-5-10-5z"/></svg>
+        Register Interest
+      </button>
+      <a href="Morocco's AI Forum 2026 - Concept Note.pdf" class="btn btn-outline" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+        Download Concept Note
+      </a>
+    </div>
+  </div>
+  <div class="hero-scroll" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    Scroll
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" aria-labelledby="about-title">
+  <div class="container">
+    <h2 class="section-title" id="about-title">About the Forum</h2>
+    <p class="section-sub">A transformative platform advancing women's leadership in artificial intelligence, jointly organized by MoroccoAI and GIZ.</p>
+    <div class="about-grid">
+      <div class="about-text" style="text-align: justify;">
+        <p>Building on the success of its first edition — "AI Policies: Between Innovation and Regulation" — 
+          the 2nd edition of Morocco's AI Forum deepens the conversation by focusing on <strong>Women's 
+            Leadership in AI: From Inclusion to Impact</strong>.</p>
+        <p>This second edition shifts attention to <em>who shapes AI systems and to what end</em>, 
+          recognizing leadership as a decisive factor in translating policy into real-world outcomes. 
+          It serves as a strategic platform dedicated to strengthening women's leadership in AI across 
+          Morocco and the broader Global South.</p>
+        <p>Grounded in the conviction that women's leadership is a catalyst for impact, the forum moves 
+          beyond symbolic representation toward measurable outcomes — recognizing women as designers, 
+          policymakers, researchers, entrepreneurs, and users of AI.</p>
+        <p>The forum directly supports Morocco's New Development Model (NDM), Maroc Attamkine, and the 
+          <em>Digital Morocco 2030</em> strategy, including the <strong>AI Made in Morocco</strong> initiative launched in January 2026.</p>
+      </div>
+      <div class="about-stat-box">
+        <div class="stat-item">
+          <div class="num">2nd</div>
+          <div class="label">Edition</div>
+        </div>
+        <div class="stat-item">
+          <div class="num">3</div>
+          <div class="label">Thematic Panels</div>
+        </div>
+        <div class="stat-item">
+          <div class="num">April<br><small style="font-size:.9rem">14, 2026</small></div>
+          <div class="label">Event Date</div>
+        </div>
+        <div class="stat-item">
+          <div class="num">100</div>
+          <div class="label">Expected Attendees</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OBJECTIVES -->
+<section id="objectives" aria-labelledby="obj-title">
+  <div class="container">
+    <h2 class="section-title" id="obj-title">Forum Objectives</h2>
+    <p class="section-sub">Conceived as a sustained knowledge-sharing and action-oriented platform designed to create 
+      lasting impact across countries and generations.</p>
+    <div class="obj-grid">
+      <div class="obj-card">
+        <div class="obj-icon"><svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 5-2.3 5-5S14.7 2 12 2 7 4.3 7 7s2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v1h20v-1c0-3.3-6.7-5-10-5z"/></svg></div>
+        <div class="obj-body">
+          <h4>Promote Leadership</h4>
+          <p>Advance women's leadership in AI innovation and decision-making across sectors and institutions, 
+            creating pathways for women to influence strategic technological choices.</p>
+        </div>
+      </div>
+      <div class="obj-card">
+        <div class="obj-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <div class="obj-body">
+          <h4>Address Barriers</h4>
+          <p>Tackle cultural, institutional, and structural obstacles specific to Morocco and the Global South 
+            that prevent women from fully participating in AI ecosystems.</p>
+        </div>
+      </div>
+      <div class="obj-card">
+        <div class="obj-icon"><svg viewBox="0 0 24 24"><path d="M3 3h18v18H3z" fill="none" stroke="white" stroke-width="2"/><path d="M9 9h6v6H9z"/></svg></div>
+        <div class="obj-body">
+          <h4>Strengthen Governance</h4>
+          <p>Encourage women's participation in AI governance, standards, and policy-making bodies to ensure inclusive 
+            and equitable frameworks for AI development.</p>
+        </div>
+      </div>
+      <div class="obj-card">
+        <div class="obj-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="obj-body">
+          <h4>Challenge Bias</h4>
+          <p>Address social norms and gender bias in AI systems to ensure culturally aware, socially responsible technology that maximises positive human impact.</p>
+        </div>
+      </div>
+      <div class="obj-card">
+        <div class="obj-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12" stroke="white" stroke-width="2"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" fill="none" stroke="white" stroke-width="2"/></svg></div>
+        <div class="obj-body">
+          <h4>Facilitate Exchange</h4>
+          <p>Enable South–South and South–North knowledge sharing and collaboration, creating bridges for learning and partnership across regions.</p>
+        </div>
+      </div>
+      <div class="obj-card">
+        <div class="obj-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <div class="obj-body">
+          <h4>Build Foundation</h4>
+          <p>Lay groundwork for scalable initiatives including competitions, hackathons, and mentorship programs that will extend the forum's impact beyond the event itself.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUTCOMES -->
+<section id="outcomes" aria-labelledby="out-title">
+  <div class="container">
+    <h2 class="section-title" id="out-title">Expected Outcomes</h2>
+    <p class="section-sub">Three concrete deliverables that will emerge from this transformative gathering.</p>
+    <div class="outcomes-grid">
+      <div class="outcome-card">
+        <div class="outcome-num">01</div>
+        <h3>Empowered Network of Women AI Leaders</h3>
+        <p>An expanding Governance and Advisory Board of women AI leaders and allies, empowered to drive AI innovation within organizations, influence global standards, and shape inclusive AI across their countries.</p>
+      </div>
+      <div class="outcome-card">
+        <div class="outcome-num">02</div>
+        <h3>Women-Driven Policy &amp; Governance</h3>
+        <p>Concrete policy and leadership recommendations, driven by women's insights, to influence AI standards, governance, and ensure socially responsible AI development tailored to cultural and regional contexts.</p>
+      </div>
+      <div class="outcome-card">
+        <div class="outcome-num">03</div>
+        <h3>Foundations for Women's AI Impact</h3>
+        <p>Strong foundations for the launch of action-oriented initiatives including competitions &amp; hackathons, mentorship, and capacity-building programs designed to further women's agency in leading AI innovation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section id="pillars" aria-labelledby="pil-title">
+  <div class="container">
+    <h2 class="section-title" id="pil-title">Three Thematic Pillars</h2>
+    <p class="section-sub">The forum is structured around three interconnected pillars addressing the full 
+      spectrum of women's leadership in AI — from societal trends and challenges to institutional governance and organizational power.</p>
+    <div class="pillars-stack">
+
+      <div class="pillar-card">
+        <div class="pillar-num-col">
+          <div class="p-num">1</div>
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="pillar-body">
+          <span class="pillar-focus">Panel 1</span>
+          <h3>Women Grounding AI: Social Norms, Gender Bias, and Human Impact</h3>
+          <p class="purpose">Examine how women's leadership shapes AI systems that are socially responsible, culturally aware, 
+            and designed to reduce bias and maximize positive societal impact. Address the intersection of technology, culture, and human values.</p>
+          <ul class="pillar-questions">
+            <li>How can women's leadership help identify and mitigate gender bias in AI datasets and algorithms?</li>
+            <li>In what ways do cultural and social norms influence AI design and deployment in Morocco and the Global South?</li>
+            <li>How can AI be leveraged to address societal challenges such as education, health, and inclusion?</li>
+            <li>What ethical frameworks and community engagement practices can women leaders champion to ensure responsible AI adoption?</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pillar-card">
+        <div class="pillar-num-col">
+          <div class="p-num">2</div>
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="pillar-body">
+          <span class="pillar-focus">Panel 2</span>
+          <h3>Women Governing AI: Standards, Governance, and Trust</h3>
+          <p class="purpose">Explore how women leaders contribute to AI governance, policy, and standards-setting, ensuring ethical, 
+            inclusive, and trustworthy AI development. Examine the mechanisms for increasing women's participation in regulatory and 
+            governance bodies.</p>
+          <ul class="pillar-questions">
+            <li>Why is women's participation in AI governance and standards-setting critical for inclusive innovation?</li>
+            <li>How do women leaders influence AI policy at organizational, national, and international levels?</li>
+            <li>What mechanisms can increase women's visibility and decision-making power in AI governance bodies?</li>
+            <li>How can public and private institutions collaborate to ensure gender-balanced leadership in AI standards and regulation?</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pillar-card">
+        <div class="pillar-num-col">
+          <div class="p-num">3</div>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="pillar-body">
+          <span class="pillar-focus">Panel 3</span>
+          <h3>Women Leading AI: Decision-Making Power and Organizational Transformation at Scale</h3>
+          <p class="purpose">Highlight how women in executive, technical, and strategic roles influence AI innovation, drive performance, and shape organizational decisions. Explore the pathways and practices that enable women to rise to leadership positions in AI-driven environments.</p>
+          <ul class="pillar-questions">
+            <li>How do women leaders shape AI strategy, product development, and investment decisions within organizations?</li>
+            <li>What evidence links women-led AI teams to improved innovation, collaboration, and performance outcomes?</li>
+            <li>Which organizational structures and cultural practices best support women in leadership roles?</li>
+            <li>How can companies mentor and promote women into executive and board-level AI positions?</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAM -->
+<section id="program" aria-labelledby="prog-title">
+  <div class="container">
+    <h2 class="section-title" id="prog-title">Program Agenda</h2>
+    <p class="section-sub">A full day of high-impact panels, networking, and strategic dialogue — Tuesday, 14 April 2026.</p>
+    <div class="timeline" role="list">
+
+      <div class="tl-item" role="listitem">
+        <div class="tl-time">09:00<br>09:30</div>
+        <div class="tl-dot" aria-hidden="true"></div>
+        <div class="tl-card break">
+          <h4>Welcome Coffee</h4>
+          <p>Networking, registration, and welcome refreshments</p>
+        </div>
+      </div>
+
+      <div class="tl-item" role="listitem">
+        <div class="tl-time">09:30<br>10:00</div>
+        <div class="tl-dot" aria-hidden="true"></div>
+        <div class="tl-card">
+          <h4>Opening Ceremony</h4>
+          <p>MoroccoAI &amp; GIZ welcoming speeches</p>
+        </div>
+      </div>
+
+      <div class="tl-item" role="listitem">
+        <div class="tl-time">10:00<br>11:30</div>
+        <div class="tl-dot" aria-hidden="true"></div>
+        <div class="tl-card panel">
+          <span class="tl-tag">Panel 1</span>
+          <h4>Women Grounding AI: Social Norms, Gender Bias, and Human Impact</h4>
+          <p>Highlighting women's leadership in ensuring AI serves diverse communities and addresses social equity responsibly.</p>
+        </div>
+      </div>
+
+      <div class="tl-item" role="listitem">
+        <div class="tl-time">11:30<br>12:00</div>
+        <div class="tl-dot" aria-hidden="true"></div>
+        <div class="tl-card break">
+          <h4>Coffee Break</h4>
+          <p>Informal networking and discussions</p>
+        </div>
+      </div>
+
+      <div class="tl-item" role="listitem">
+        <div class="tl-time">12:00<br>13:30</div>
+        <div class="tl-dot" aria-hidden="true"></div>
+        <div class="tl-card panel">
+          <span class="tl-tag">Panel 2</span>
+          <h4>Women Governing AI: Standards, Governance, and Trust</h4>
+          <p>Examining women's critical role in shaping AI policy, regulations, and ethical frameworks to ensure responsible development.</p>
+        </div>
+      </div>
+
+      <div class="tl-item" role="listitem">
+        <div class="tl-time">13:30<br>15:00</div>
+        <div class="tl-dot" aria-hidden="true"></div>
+        <div class="tl-card break">
+          <h4>Lunch &amp; Networking</h4>
+          <p>Building connections for future collaboration</p>
+        </div>
+      </div>
+
+      <div class="tl-item" role="listitem">
+        <div class="tl-time">15:00<br>16:30</div>
+        <div class="tl-dot" aria-hidden="true"></div>
+        <div class="tl-card panel">
+          <span class="tl-tag">Panel 3</span>
+          <h4>Women Leading AI: Decision-Making Power and Organizational Transformation at Scale</h4>
+          <p>Exploring how women drive AI strategy, implementation, and transformative innovation within organizations.</p>
+        </div>
+      </div>
+
+      <div class="tl-item" role="listitem">
+        <div class="tl-time">16:30<br>17:00</div>
+        <div class="tl-dot" aria-hidden="true"></div>
+        <div class="tl-card">
+          <h4>Closing Ceremony</h4>
+          <p>Constitution of the Board, key takeaways, and future announcements</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SPEAKERS -->
+<section id="speakers" aria-labelledby="spk-title">
+  <div class="container">
+    <h2 class="section-title" id="spk-title">Speakers</h2>
+    <p class="section-sub">An exceptional lineup of women leaders, policymakers, researchers, and innovators from Morocco and around the world.</p>
+
+    <div class="speakers-panels">
+
+      <div>
+        <div class="spk-panel-label">Panel 1 — Women Grounding AI: Social Norms, Gender Bias &amp; Human Impact</div>
+        <div class="spk-grid">
+          <div class="spk-card">
+            <div class="spk-avatar">AB</div>
+            <div class="spk-name">Ms. Anita Bhatia</div>
+            <div class="spk-role">Former Assistant Secretary General and Deputy Executive Director, UN Women</div>
+          </div>
+          <div class="spk-card">
+            <div class="spk-avatar">
+              <img src="imgs/MS.png" alt="" onerror="this.style.display='none'"></div>
+            <div class="spk-name">Ms. Marielle Sander</div>
+            <div class="spk-role">UNFPA Representative in Morocco</div>
+          </div>
+          <div class="spk-card">
+            <div class="spk-avatar">+</div>
+            <div class="spk-name">More Speakers</div>
+            <div class="spk-role"><span class="tba-badge">To Be Announced</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="spk-panel-label">Panel 2 — Women Governing AI: Standards, Governance &amp; Trust</div>
+        <div class="spk-grid">
+          <div class="spk-card">
+            <div class="spk-avatar">UT</div>
+            <div class="spk-name">Dr. Ulrike Till</div>
+            <div class="spk-role">Director IP and Frontier Technologies Division, WIPO</div>
+          </div>
+          <div class="spk-card">
+            <div class="spk-avatar">
+              <img src="imgs/NI.png" alt="" onerror="this.style.display='none'">
+            </div>
+            <div class="spk-name">Dr. Nibal Idlebi</div>
+            <div class="spk-role">Senior Advisor in Digital Transformation and Innovation Policies. AI and Emerging Technologies</div>
+          </div>
+          <div class="spk-card">
+            <div class="spk-avatar">
+              <img src="imgs/CW.png" alt="" onerror="this.style.display='none'">
+            </div>
+            <div class="spk-name">Dr. Cornelia C. Walther</div>
+            <div class="spk-role">Senior Fellow Wharton School. University of Pennsylvania</div>
+          </div>
+          <div class="spk-card">
+            <div class="spk-avatar">
+              <img src="imgs/VH.png" alt="" onerror="this.style.display='none'"></div>
+            <div class="spk-name">Dr. Vida Hamd</div>
+            <div class="spk-role">Head of Public Policy MENA, META</div>
+          </div>
+          <div class="spk-card">
+            <div class="spk-avatar">+</div>
+            <div class="spk-name">More Speakers</div>
+            <div class="spk-role"><span class="tba-badge">To Be Announced</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="spk-panel-label">Panel 3 — Women Leading AI: Decision-Making Power &amp; Organizational Transformation</div>
+        <div class="spk-grid">
+          <div class="spk-card">
+            <div class="spk-avatar">+</div>
+            <div class="spk-name">More Speakers</div>
+            <div class="spk-role"><span class="tba-badge">To Be Announced</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section id="partners" aria-labelledby="par-title">
+  <div class="container">
+    <h2 class="section-title" id="par-title">Organizers &amp; Partners</h2>
+    <p class="section-sub">The forum is jointly organized by MoroccoAI and GIZ (German Cooperation), with support from key institutional partners.</p>
+    <div class="partners-grid">
+      <div class="partner-card">
+        <div class="partner-logo-placeholder">
+          <img src="imgs/MoroccoAI.png" alt="" onerror="this.style.display='none'">
+        </div>
+        <div class="partner-name">A leading non-profit organization dedicated to advancing AI research, education, and implementation 
+          across Morocco. Through partnerships with academia, industry, and government, MoroccoAI has established itself as a crucial 
+          bridge between global AI advancements and local implementation.</div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-logo-placeholder">
+          <img src="imgs/GIZ.png" alt="" onerror="this.style.display='none'">
+        </div>
+        <div class="partner-name">GIZ — German Cooperation</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VENUE -->
+<section id="venue" aria-labelledby="ven-title">
+  <div class="container">
+    <h2 class="section-title" id="ven-title">Venue</h2>
+    <p class="section-sub">Join us in the heart of Morocco's capital city for a day of transformative dialogue.</p>
+    <div class="venue-grid">
+      <div class="venue-info">
+        <h3>Story Le Carrousel</h3>
+        <div class="venue-sub">Rabat, Morocco</div>
+        <p style="text-align: justify;">An elegant and contemporary venue in Rabat, Morocco's capital, offering an inspiring setting for high-level dialogue and networking among leaders, policymakers, and innovators.</p>
+        <div class="venue-detail">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Story Le Carrousel, Rabat – Morocco</span>
+        </div>
+        <div class="venue-detail">
+          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span>Tuesday, 14 April 2026 | 09:00 – 17:00</span>
+        </div>
+      </div>
+      <div class="venue-map-placeholder" aria-label="Map placeholder">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1714.8974324677524!2d-6.89800542276771!3d33.980669707083614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda76d004302b4b7%3A0xcd7a6a17bf8db514!2sSTORY%20Le%20Carrousel%20Rabat!5e1!3m2!1sfr!2sma!4v1772107318074!5m2!1sfr!2sma" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" aria-labelledby="con-title">
+  <div class="container">
+    <div class="contact-inner">
+      <h2 class="section-title" id="con-title" style="color:white">Join Us in Shaping the Future</h2>
+      <p>The Forum invites leaders, policymakers, researchers, entrepreneurs, and advocates to join this transformative movement. 
+        Together, we will empower women to lead AI innovation, influence governance, and shape inclusive AI for all of society.</p>
+      <div class="contact-links">
+        <a href="mailto:team@morocco.ai" class="contact-link" aria-label="Email the organizing committee">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6" stroke="white" stroke-width="1.5" fill="none"/></svg>
+          team@morocco.ai
+        </a>
+        <a href="https://morocco.ai" class="contact-link" target="_blank" rel="noopener" aria-label="Visit Morocco AI website">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12" stroke="white" stroke-width="1.5"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" fill="none" stroke="white" stroke-width="1.5"/></svg>
+          www.morocco.ai
+        </a>
+      </div>
+      <div class="contact-btn-row">
+        <button class="btn btn-primary" id="contact-register-btn" aria-haspopup="dialog">
+          Register Interest
+        </button>
+        <a href="Morocco's AI Forum 2026 - Concept Note.pdf" class="btn btn-outline" target="_blank">
+          Download Concept Note
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Morocco's AI Forum · Organized by <a href="https://morocco.ai" target="_blank" rel="noopener">MoroccoAI</a> &amp; GIZ</a></p>
+</footer>
+
+<!-- BACK TO TOP -->
+<button id="back-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15" stroke="white" stroke-width="2.5" fill="none"/></svg>
+</button>
+
+<!-- REGISTER MODAL -->
+<div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal" id="modal">
+    <button class="modal-close" id="modal-close" aria-label="Close registration form">
+      <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2"/><line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2"/></svg>
+    </button>
+
+    <div id="modal-form-wrap">
+      <h2 id="modal-title">Register Your Interest</h2>
+      <p class="modal-sub">Complete the form below and our team will follow up with event details and registration information.</p>
+
+      <form id="register-form" novalidate>
+        <div class="form-group">
+          <label for="f-name">Full Name <span class="req">*</span></label>
+          <input type="text" id="f-name" placeholder="Your full name" autocomplete="name" required>
+          <div class="field-err" id="err-name">Please enter your full name.</div>
+        </div>
+        <div class="form-group">
+          <label for="f-email">Email Address <span class="req">*</span></label>
+          <input type="email" id="f-email" placeholder="you@organization.com" autocomplete="email" required>
+          <div class="field-err" id="err-email">Please enter a valid email address.</div>
+        </div>
+        <div class="form-group">
+          <label for="f-org">Organization <span class="req">*</span></label>
+          <input type="text" id="f-org" placeholder="Your organization or institution" required>
+          <div class="field-err" id="err-org">Please enter your organization.</div>
+        </div>
+        <div class="form-group">
+          <label for="f-role">Your Role <span class="req">*</span></label>
+          <input type="text" id="f-role" placeholder="e.g. Researcher, Policymaker, Entrepreneur" required>
+          <div class="field-err" id="err-role">Please enter your role.</div>
+        </div>
+        <div class="form-group">
+          <label for="f-interest">Area of Interest <span class="req">*</span></label>
+          <select id="f-interest" required>
+            <option value="">— Select an area —</option>
+            <option value="social">Social Norms, Gender Bias &amp; Human Impact (Panel 1)</option>
+            <option value="governance">AI Governance, Standards &amp; Trust (Panel 2)</option>
+            <option value="leadership">Women's Leadership &amp; Organizational Transformation (Panel 3)</option>
+            <option value="all">All Panels</option>
+            <option value="partnership">Partnership / Sponsorship Opportunities</option>
+            <option value="media">Media / Press</option>
+          </select>
+          <div class="field-err" id="err-interest">Please select an area of interest.</div>
+        </div>
+        <div class="checkbox-row">
+          <input type="checkbox" id="f-consent" required>
+          <label for="f-consent">I consent to the organizing committee contacting me with event information and updates related to Morocco's AI Forum 2026. <span class="req">*</span></label>
+        </div>
+        <div class="field-err" id="err-consent" style="margin-top:-0.8rem;margin-bottom:1rem;">Please provide your consent to proceed.</div>
+        <button type="submit" class="btn btn-red" style="width:100%;justify-content:center;font-size:1rem;padding:.9rem">Submit Registration</button>
+      </form>
+    </div>
+
+    <div class="modal-success" id="modal-success" aria-live="polite">
+      <div class="success-icon">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke="#2E7D32" stroke-width="3" fill="none"/></svg>
+      </div>
+      <h3>Registration Received!</h3>
+      <p>Thank you for your interest in Morocco's AI Forum 2026. Our team will be in touch shortly with event details and next steps.</p>
+      <p style="margin-top:.8rem">For immediate inquiries: <a href="mailto:team@morocco.ai" style="color:var(--primary)">team@morocco.ai</a></p>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ── NAV SCROLL EFFECT ── */
+  const navbar = document.getElementById('navbar');
+  const backTop = document.getElementById('back-top');
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('nav ul li a');
+
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    navbar.classList.toggle('scrolled', y > 40);
+    backTop.classList.toggle('visible', y > 400);
+
+    // Active nav link
+    let current = '';
+    sections.forEach(sec => {
+      if (y >= sec.offsetTop - 100) current = sec.id;
+    });
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  }, { passive: true });
+
+  /* ── SMOOTH SCROLL ── */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Close mobile nav
+        document.getElementById('main-nav').classList.remove('open');
+        document.getElementById('hamburger').setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+
+  /* ── HAMBURGER ── */
+  document.getElementById('hamburger').addEventListener('click', function () {
+    const nav = document.getElementById('main-nav');
+    const open = nav.classList.toggle('open');
+    this.setAttribute('aria-expanded', open);
+  });
+
+  /* ── BACK TO TOP ── */
+  backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  /* ── MODAL ── */
+  const overlay = document.getElementById('modal-overlay');
+  const modal = document.getElementById('modal');
+  const closeBtn = document.getElementById('modal-close');
+  const formWrap = document.getElementById('modal-form-wrap');
+  const successWrap = document.getElementById('modal-success');
+  let lastFocused;
+
+  const focusableSelector = 'button, input, select, textarea, a[href], [tabindex]:not([tabindex="-1"])';
+
+  function openModal() {
+    lastFocused = document.activeElement;
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => {
+      const firstEl = modal.querySelector(focusableSelector);
+      if (firstEl) firstEl.focus();
+    }, 50);
+  }
+
+  function closeModal() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+    if (lastFocused) lastFocused.focus();
+  }
+
+  document.getElementById('hero-register-btn').addEventListener('click', openModal);
+  document.getElementById('contact-register-btn').addEventListener('click', openModal);
+  closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+
+  // Focus trap
+  modal.addEventListener('keydown', e => {
+    if (e.key !== 'Tab') return;
+    const focusable = Array.from(modal.querySelectorAll(focusableSelector)).filter(el => !el.disabled);
+    const first = focusable[0], last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal(); });
+
+  /* ── FORM VALIDATION ── */
+  function showErr(fieldId, errId, show) {
+    const f = document.getElementById(fieldId);
+    const e = document.getElementById(errId);
+    f.classList.toggle('error', show);
+    e.classList.toggle('show', show);
+  }
+
+  function validEmail(v) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+  }
+
+  document.getElementById('register-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const name = document.getElementById('f-name').value.trim();
+    const email = document.getElementById('f-email').value.trim();
+    const org = document.getElementById('f-org').value.trim();
+    const role = document.getElementById('f-role').value.trim();
+    const interest = document.getElementById('f-interest').value;
+    const consent = document.getElementById('f-consent').checked;
+
+    let valid = true;
+
+    showErr('f-name', 'err-name', !name);
+    if (!name) valid = false;
+
+    showErr('f-email', 'err-email', !email || !validEmail(email));
+    if (!email || !validEmail(email)) valid = false;
+
+    showErr('f-org', 'err-org', !org);
+    if (!org) valid = false;
+
+    showErr('f-role', 'err-role', !role);
+    if (!role) valid = false;
+
+    showErr('f-interest', 'err-interest', !interest);
+    if (!interest) valid = false;
+
+    const consentErr = document.getElementById('err-consent');
+    consentErr.classList.toggle('show', !consent);
+    if (!consent) valid = false;
+
+    if (valid) {
+      formWrap.style.display = 'none';
+      successWrap.classList.add('show');
+      successWrap.focus();
+    } else {
+      const firstErr = modal.querySelector('.error, input.error');
+      if (firstErr) firstErr.focus();
+    }
+  });
+
+  // Clear errors on input
+  ['f-name','f-email','f-org','f-role','f-interest'].forEach(id => {
+    const el = document.getElementById(id);
+    el.addEventListener('input', () => el.classList.remove('error'));
+  });
+
+  /* ── FAQ ACCORDION ── */
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', function () {
+      const expanded = this.getAttribute('aria-expanded') === 'true';
+      // Close all
+      document.querySelectorAll('.faq-q').forEach(b => {
+        b.setAttribute('aria-expanded', 'false');
+        document.getElementById(b.getAttribute('aria-controls')).classList.remove('open');
+      });
+      // Toggle clicked
+      if (!expanded) {
+        this.setAttribute('aria-expanded', 'true');
+        document.getElementById(this.getAttribute('aria-controls')).classList.add('open');
+      }
+    });
+  });
+
+})();
+</script>
+</body>
+</html>
