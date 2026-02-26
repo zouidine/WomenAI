@@ -64,17 +64,17 @@
 
   section { padding: 5rem 1.5rem; }
 
-  .container { max-width: 1140px; margin: 0 auto; }
+  .container { width: 100%; margin: 0 auto; }
 
   /* ── NAV ── */
   #navbar {
-    position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 1000;
     background: rgba(255,255,255,0.97);
     backdrop-filter: blur(8px);
     border-bottom: 2px solid var(--border);
     height: var(--nav-h);
+    width: 100%;
     display: flex;
     align-items: center;
     transition: box-shadow .3s;
@@ -82,7 +82,6 @@
   #navbar.scrolled { box-shadow: 0 4px 24px var(--shadow); }
 
   .nav-inner {
-    max-width: 1200px;
     margin: 0 auto;
     width: 100%;
     padding: 0 1.5rem;
@@ -731,9 +730,6 @@
     flex-direction: column;
     align-items: center;
     gap: 0.05rem;
-    min-width: 500px;
-    max-width: 500px;
-    min-height: 300px;
     text-align: center;
     transition: box-shadow .2s;
   }
@@ -800,6 +796,7 @@
     border: 1px solid var(--border);
     border-radius: 14px;
     height: 280px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -812,7 +809,7 @@
   }
   .venue-map-placeholder svg { width: 40px; height: 40px; fill: var(--border); }
 
-  @media (max-width: 720px) { .venue-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 1000px) { .venue-grid { grid-template-columns: 1fr; } }
 
   /* ── FAQ ── */
   #faq { background: white; }
@@ -1541,7 +1538,7 @@
         </div>
       </div>
       <div class="venue-map-placeholder" aria-label="Map placeholder">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1714.8974324677524!2d-6.89800542276771!3d33.980669707083614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda76d004302b4b7%3A0xcd7a6a17bf8db514!2sSTORY%20Le%20Carrousel%20Rabat!5e1!3m2!1sfr!2sma!4v1772107318074!5m2!1sfr!2sma" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1714.8974324677524!2d-6.89800542276771!3d33.980669707083614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda76d004302b4b7%3A0xcd7a6a17bf8db514!2sSTORY%20Le%20Carrousel%20Rabat!5e1!3m2!1sfr!2sma!4v1772107318074!5m2!1sfr!2sma" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   </div>
