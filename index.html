@@ -64,17 +64,17 @@
 
   section { padding: 5rem 1.5rem; }
 
-  .container { width: 100%; margin: 0 auto; }
+  .container { max-width: 1140px; margin: 0 auto; }
 
   /* ── NAV ── */
   #navbar {
+    position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 1000;
     background: rgba(255,255,255,0.97);
     backdrop-filter: blur(8px);
     border-bottom: 2px solid var(--border);
     height: var(--nav-h);
-    width: 100%;
     display: flex;
     align-items: center;
     transition: box-shadow .3s;
@@ -82,6 +82,7 @@
   #navbar.scrolled { box-shadow: 0 4px 24px var(--shadow); }
 
   .nav-inner {
+    max-width: 1200px;
     margin: 0 auto;
     width: 100%;
     padding: 0 1.5rem;
@@ -510,14 +511,15 @@
     margin-bottom: 0.5rem;
   }
 
-  .pillar-body h3 { font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--text); }
-  .pillar-body .purpose { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.8rem; }
+  .pillar-body h3 { font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--text); text-align: justify;}
+  .pillar-body .purpose { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.8rem; text-align: justify;}
 
   .pillar-questions {
     list-style: none;
     display: flex;
     flex-direction: column;
     gap: 0.35rem;
+    text-align: justify;
   }
   .pillar-questions li {
     font-size: 0.84rem;
@@ -598,10 +600,12 @@
     font-size: 0.97rem;
     color: var(--text);
     margin-bottom: 0.25rem;
+    text-align: justify;
   }
   .tl-card p {
     font-size: 0.84rem;
     color: var(--muted);
+    text-align: justify
   }
 
   .tl-tag {
@@ -732,6 +736,7 @@
     gap: 0.05rem;
     text-align: center;
     transition: box-shadow .2s;
+    max-width: 500px;
   }
   .partner-card:hover { box-shadow: 0 4px 16px var(--shadow); }
 
@@ -1425,13 +1430,24 @@
         <div class="spk-panel-label">Panel 1 — Women Grounding AI: Social Norms, Gender Bias &amp; Human Impact</div>
         <div class="spk-grid">
           <div class="spk-card">
-            <div class="spk-avatar">AB</div>
-            <div class="spk-name">Ms. Anita Bhatia</div>
-            <div class="spk-role">Former Assistant Secretary General and Deputy Executive Director, UN Women</div>
+            <div class="spk-avatar">
+              <img src="imgs/AH.png" alt="" onerror="this.style.display='none'">
+            </div>
+            <div class="spk-name">Prof. Aawatif Hayar</div>
+            <div class="spk-role">Former Minister of Solidarity, Social Integration, and the Family</div>
           </div>
           <div class="spk-card">
             <div class="spk-avatar">
-              <img src="imgs/MS.png" alt="" onerror="this.style.display='none'"></div>
+              <img src="imgs/AB.png" alt="" onerror="this.style.display='none'">
+            </div>
+            <div class="spk-name">Ms. Anita Bhatia</div>
+            <div class="spk-role">Former United Nations Assistant Secretary-General and Deputy Executive Director at UN Women; 
+              Visiting Fellow at King's College; and Board Member for various entities</div>
+          </div>
+          <div class="spk-card">
+            <div class="spk-avatar">
+              <img src="imgs/MS.png" alt="" onerror="this.style.display='none'">
+            </div>
             <div class="spk-name">Ms. Marielle Sander</div>
             <div class="spk-role">UNFPA Representative in Morocco</div>
           </div>
